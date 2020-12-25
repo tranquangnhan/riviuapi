@@ -1,4 +1,5 @@
 var express = require('express');
+const { app } = require('firebase-admin');
 var router = express.Router();
 var admin = require("firebase-admin");
 
@@ -20,5 +21,7 @@ router.get('/', function(req, res, next) {
         res.json(snapshot.val());
     });
 });
+
+
 
 module.exports = router;
