@@ -13,17 +13,21 @@ var con = mysql.createConnection({
 });
 
 router.get('/allblog', function(req, res, next) {
+    var data = {};
     var sql = "SELECT * FROM baiviet WHERE 1";
     con.query(sql, function(err, result) {
         if (err) throw err;
-        res.json(result);
+        data['data'] = result;
+        res.json(data);
     });
 });
 router.get('/dmbaiviet/idmon=:idmon', function(req, res, next) {
+    var data = {};
     var sql = "SELECT * FROM baiviet WHERE idmonan =" + req.params.idmon;
     con.query(sql, function(err, result) {
         if (err) throw err;
-        res.json(result);
+        data['data'] = result;
+        res.json(data);
     });
 });
 
