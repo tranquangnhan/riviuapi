@@ -1,0 +1,9 @@
+Tên người dùng: 5K12HlNiOH
+
+Tên cơ sở dữ liệu: 5K12HlNiOH
+
+Mật khẩu: pnvgLC04Yb
+
+Máy chủ: remotemysql.com
+
+Cảng: 3306

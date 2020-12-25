@@ -1,27 +1,31 @@
 var express = require('express');
-const { app } = require('firebase-admin');
+
 var router = express.Router();
-var admin = require("firebase-admin");
 
-var serviceAccount = require("../firebase/serviceAccountKey.json");
+var mysql = require('mysql');
 
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://apiplace-299105-default-rtdb.firebaseio.com"
+
+var con = mysql.createConnection({
+    host: "remotemysql.com",
+    user: "5K12HlNiOH",
+    password: "pnvgLC04Yb",
+    database: "5K12HlNiOH"
 });
 
-var db = admin.database();
-
-
-router.get('/', function(req, res, next) {
-
-    var ref = db.ref('/users/' + 'nhan');
-    ref.once("value", function(snapshot) {
-        // console.log(snapshot.val());
-        res.json(snapshot.val());
+router.get('/allblog', function(req, res, next) {
+    var sql = "SELECT * FROM baiviet WHERE 1";
+    con.query(sql, function(err, result) {
+        if (err) throw err;
+        res.json(result);
     });
 });
-
+router.get('/dmbaiviet/idmon=:idmon', function(req, res, next) {
+    var sql = "SELECT * FROM baiviet WHERE idmonan =" + req.params.idmon;
+    con.query(sql, function(err, result) {
+        if (err) throw err;
+        res.json(result);
+    });
+});
 
 
 module.exports = router;

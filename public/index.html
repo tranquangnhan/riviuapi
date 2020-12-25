@@ -40,13 +40,13 @@
         // dbRef.on('value', snap => bigOne.innerText = snap.val());
 
 
-        function writeUserData(userId, name, email, imageUrl) {
-            firebase.database().ref('users/' + userId).set({
-                username: name,
-                email: email,
-                profile_picture: imageUrl
-            });
-        }
+        // function writeUserData(userId, name, email, imageUrl) {
+        //     firebase.database().ref('users/' + userId).set({
+        //         username: name,
+        //         email: email,
+        //         profile_picture: imageUrl
+        //     });
+        // }
         // writeUserData('nhan', 'nhan1235', 'tranquangnhan1606@gmail.com', 'cc')
         function socialSingleValueRead() {
             // [START rtdb_social_single_value_read]
@@ -59,7 +59,7 @@
                     document.getElementById('bigOne').innerText = JSON.stringify(snap.val());
                 });
         }
-        socialSingleValueRead();
+        // socialSingleValueRead();
     </script>
 </body>
 

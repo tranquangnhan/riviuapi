@@ -25,7 +25,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.listen(process.env.PORT, () => {
+app.listen(3000 || process.env.PORT, () => {
     console.log('sever is running...');
 })
 module.exports = app;
